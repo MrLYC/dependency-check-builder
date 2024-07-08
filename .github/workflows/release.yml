@@ -64,8 +64,7 @@ jobs:
           tags: ${{ steps.prep.outputs.tags }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args:
-            - NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          build-args: "NVD_API_KEY=${{ secrets.NVD_API_KEY }}"
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
